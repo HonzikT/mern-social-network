@@ -11,8 +11,8 @@ const router = express.Router();
 const User = require('../../models/User');
 
 // @route   GET api/auth
-// @desc    Test route
-// @access  Public
+// @desc    Get authenticated user
+// @access  Private
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
